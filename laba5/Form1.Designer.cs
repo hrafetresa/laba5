@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gbInput = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,26 +44,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpInput = new System.Windows.Forms.TabPage();
-            this.listBoxPreview = new System.Windows.Forms.ListBox();
-            this.tpTable = new System.Windows.Forms.TabPage();
             this.gbFiles = new System.Windows.Forms.GroupBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.listBoxPreview = new System.Windows.Forms.ListBox();
+            this.tpTable = new System.Windows.Forms.TabPage();
             this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.tpCharts = new System.Windows.Forms.TabPage();
+            this.chartPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartColumn = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDevs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tpCharts = new System.Windows.Forms.TabPage();
-            this.chartPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartColumn = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbInput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudProjects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDevs)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpInput.SuspendLayout();
-            this.tpTable.SuspendLayout();
             this.gbFiles.SuspendLayout();
+            this.tpTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.tpCharts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPie)).BeginInit();
@@ -101,15 +102,15 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
+            this.label3.Size = new System.Drawing.Size(150, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Всего проектов:";
+            this.label3.Text = "Расходы за день (тыс. руб.):";
             // 
             // nudProjects
             // 
-            this.nudProjects.Location = new System.Drawing.Point(155, 81);
+            this.nudProjects.Location = new System.Drawing.Point(174, 81);
             this.nudProjects.Maximum = new decimal(new int[] {
-            999999,
+            100000,
             0,
             0,
             0});
@@ -129,9 +130,9 @@
             // 
             // nudDevs
             // 
-            this.nudDevs.Location = new System.Drawing.Point(155, 51);
+            this.nudDevs.Location = new System.Drawing.Point(174, 51);
             this.nudDevs.Maximum = new decimal(new int[] {
-            999999,
+            100000,
             0,
             0,
             0});
@@ -154,13 +155,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 13);
+            this.label2.Size = new System.Drawing.Size(149, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Разработчиков (тыс. чел):";
+            this.label2.Text = "Выручка за день (тыс. руб.):";
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(155, 17);
+            this.tbName.Location = new System.Drawing.Point(174, 17);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(100, 20);
             this.tbName.TabIndex = 1;
@@ -170,9 +171,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Название языка :";
+            this.label1.Text = "День недели/Дата:";
             // 
             // tabControl1
             // 
@@ -198,25 +199,6 @@
             this.tpInput.TabIndex = 0;
             this.tpInput.Text = "Ввод данных";
             this.tpInput.UseVisualStyleBackColor = true;
-            // 
-            // listBoxPreview
-            // 
-            this.listBoxPreview.FormattingEnabled = true;
-            this.listBoxPreview.Location = new System.Drawing.Point(321, 26);
-            this.listBoxPreview.Name = "listBoxPreview";
-            this.listBoxPreview.Size = new System.Drawing.Size(294, 277);
-            this.listBoxPreview.TabIndex = 0;
-            // 
-            // tpTable
-            // 
-            this.tpTable.Controls.Add(this.dgvResults);
-            this.tpTable.Location = new System.Drawing.Point(4, 22);
-            this.tpTable.Name = "tpTable";
-            this.tpTable.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTable.Size = new System.Drawing.Size(664, 336);
-            this.tpTable.TabIndex = 1;
-            this.tpTable.Text = "Таблица результатов";
-            this.tpTable.UseVisualStyleBackColor = true;
             // 
             // gbFiles
             // 
@@ -249,6 +231,25 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // listBoxPreview
+            // 
+            this.listBoxPreview.FormattingEnabled = true;
+            this.listBoxPreview.Location = new System.Drawing.Point(321, 26);
+            this.listBoxPreview.Name = "listBoxPreview";
+            this.listBoxPreview.Size = new System.Drawing.Size(294, 277);
+            this.listBoxPreview.TabIndex = 0;
+            // 
+            // tpTable
+            // 
+            this.tpTable.Controls.Add(this.dgvResults);
+            this.tpTable.Location = new System.Drawing.Point(4, 22);
+            this.tpTable.Name = "tpTable";
+            this.tpTable.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTable.Size = new System.Drawing.Size(664, 336);
+            this.tpTable.TabIndex = 1;
+            this.tpTable.Text = "Таблица результатов";
+            this.tpTable.UseVisualStyleBackColor = true;
+            // 
             // dgvResults
             // 
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -256,32 +257,12 @@
             this.colName,
             this.colDevs,
             this.colProjects,
-            this.colIndex});
+            this.colIndex,
+            this.Column1});
             this.dgvResults.Location = new System.Drawing.Point(6, 6);
             this.dgvResults.Name = "dgvResults";
-            this.dgvResults.Size = new System.Drawing.Size(456, 167);
+            this.dgvResults.Size = new System.Drawing.Size(514, 313);
             this.dgvResults.TabIndex = 0;
-            // 
-            // colName
-            // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colName.HeaderText = "Язык программирования";
-            this.colName.Name = "colName";
-            // 
-            // colDevs
-            // 
-            this.colDevs.HeaderText = "Разработчики (тыс. )";
-            this.colDevs.Name = "colDevs";
-            // 
-            // colProjects
-            // 
-            this.colProjects.HeaderText = "Проекты (тыс. )";
-            this.colProjects.Name = "colProjects";
-            // 
-            // colIndex
-            // 
-            this.colIndex.HeaderText = "Проектов на разработчика";
-            this.colIndex.Name = "colIndex";
             // 
             // tpCharts
             // 
@@ -297,41 +278,67 @@
             // 
             // chartPie
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartPie.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartPie.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chartPie.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartPie.Legends.Add(legend5);
             this.chartPie.Location = new System.Drawing.Point(337, 16);
             this.chartPie.Name = "chartPie";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartPie.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartPie.Series.Add(series5);
             this.chartPie.Size = new System.Drawing.Size(300, 300);
             this.chartPie.TabIndex = 0;
             this.chartPie.Text = "chart1";
             // 
             // chartColumn
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartColumn.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartColumn.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chartColumn.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chartColumn.Legends.Add(legend6);
             this.chartColumn.Location = new System.Drawing.Point(6, 16);
             this.chartColumn.Name = "chartColumn";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartColumn.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartColumn.Series.Add(series6);
             this.chartColumn.Size = new System.Drawing.Size(300, 300);
             this.chartColumn.TabIndex = 0;
             this.chartColumn.Text = "chart1";
+            // 
+            // colName
+            // 
+            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colName.HeaderText = "День / Дата";
+            this.colName.Name = "colName";
+            // 
+            // colDevs
+            // 
+            this.colDevs.HeaderText = "Выручка (тыс. руб.)";
+            this.colDevs.Name = "colDevs";
+            // 
+            // colProjects
+            // 
+            this.colProjects.HeaderText = "Расходы (тыс. руб.)";
+            this.colProjects.Name = "colProjects";
+            // 
+            // colIndex
+            // 
+            this.colIndex.HeaderText = "Чистая прибыль (тыс. руб.)";
+            this.colIndex.Name = "colIndex";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Отклонение от средней прибыли";
+            this.Column1.Name = "Column1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 680);
+            this.ClientSize = new System.Drawing.Size(699, 385);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -341,8 +348,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDevs)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpInput.ResumeLayout(false);
-            this.tpTable.ResumeLayout(false);
             this.gbFiles.ResumeLayout(false);
+            this.tpTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.tpCharts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartPie)).EndInit();
@@ -370,12 +377,13 @@
         private System.Windows.Forms.TabPage tpCharts;
         private System.Windows.Forms.ListBox listBoxPreview;
         private System.Windows.Forms.DataGridView dgvResults;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartPie;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDevs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProjects;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIndex;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartPie;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 
