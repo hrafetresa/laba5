@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
 
-namespace WindowsFormsApp1
+namespace laba5
 {
     public partial class Form1 : Form
     {
@@ -47,6 +47,8 @@ namespace WindowsFormsApp1
                 {
                     using (StreamWriter writer = new StreamWriter(sfd.FileName))
                     {
+                        writer.WriteLine($"Какой язык программирования Вы используете? " +
+                            $"Кол-во языков: {languages.Count}");
                         foreach (var lang in languages)
                         {
                             writer.WriteLine($"{lang.Name};{lang.Devs};{lang.Projects}");
@@ -79,7 +81,7 @@ namespace WindowsFormsApp1
 
                             LanguageData lang = new LanguageData(name, devs, projects);
                             languages.Add(lang);
-                            listBoxPreview.Items.Add($"{name} (Разрабов: {devs}к, Проектов: {projects}к)");
+                            listBoxPreview.Items.Add($"{name} (Разработчиков: {devs}к, Проектов: {projects}к)");
                         }
                     }
                     MessageBox.Show("Данные успешно загружены!");
@@ -123,6 +125,8 @@ namespace WindowsFormsApp1
             chartPie.Series.Clear();
             chartPie.ChartAreas.Clear();
             chartPie.ChartAreas.Add(new ChartArea("MainArea"));
+
+            chartPie.ChartAreas[0].Area3DStyle.Enable3D = true;
 
             Series pieSeries = new Series("Developers")
             {

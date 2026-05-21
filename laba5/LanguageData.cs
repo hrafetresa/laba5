@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsFormsApp1
+namespace laba5
 {
     public class LanguageData
     {
