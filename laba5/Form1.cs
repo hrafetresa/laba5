@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Drawing;
 
 namespace laba5
 {
@@ -17,13 +18,7 @@ namespace laba5
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbName.Text))
-            {
-                MessageBox.Show("Введите день недели или дату! (например: Понедельник или 21.05)");
-                return;
-            }
-
-            string day = tbName.Text.Trim();
+            string day = dtpDay.Text.Trim();
             double rev = (double)nudDevs.Value;     
             double exp = (double)nudProjects.Value;
 
@@ -34,7 +29,6 @@ namespace laba5
 
             listBoxPreview.Items.Add($"{day} (Выручка: {rev}к, Расходы: {exp}к, Прибыль: {dayData.Profit}к)");
 
-            tbName.Clear();
             nudDevs.Value = 1;
             nudProjects.Value = 1;
         }
@@ -51,10 +45,9 @@ namespace laba5
                         writer.WriteLine($"Финансовый отчет ресторана. Количество дней: {reports.Count}");
                         foreach (var r in reports)
                         {
-                            writer.WriteLine($"{r.DayName};{r.Revenue};{r.Expenses}");
+                            writer.WriteLine($"{r.Day};{r.Revenue};{r.Expenses}");
                         }
                     }
-                    MessageBox.Show("Отчет успешно сохранен!");
                 }
             }
         }
@@ -89,7 +82,6 @@ namespace laba5
                     }
 
                     DailyReport.CalculateWeeklyMetrics(reports);
-                    MessageBox.Show("Данные успешно загружены!");
                 }
             }
         }
@@ -111,7 +103,7 @@ namespace laba5
             dgvResults.Rows.Clear();
             foreach (var r in reports)
             {
-                dgvResults.Rows.Add(r.DayName, r.Revenue, r.Expenses, r.Profit, r.Deviation.ToString("F2"));
+                dgvResults.Rows.Add(r.Day, r.Revenue, r.Expenses, r.Profit, r.Deviation.ToString("F2"));
             }
         }
 
@@ -127,6 +119,20 @@ namespace laba5
                 XValueType = ChartValueType.String
             };
 
+            chartPie.Annotations.Clear();
+            Border3DAnnotation annotation = new Border3DAnnotation();
+            annotation.Text = "Чистая прибыль(тыс. руб)";
+            annotation.Font = new Font("Arial", 9, FontStyle.Regular);
+            annotation.ForeColor = Color.Black;
+            annotation.BackColor = Color.White;
+            annotation.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
+            annotation.BorderSkin.BackColor = Color.Gray;
+            annotation.X = 1;
+            annotation.Y = 1;
+
+            chartPie.Annotations.Add(annotation);
+
+
             chartPie.Series.Clear();
             chartPie.ChartAreas.Clear();
             chartPie.ChartAreas.Add(new ChartArea("MainArea"));
@@ -135,17 +141,22 @@ namespace laba5
             Series pieSeries = new Series("Расходы")
             {
                 ChartType = SeriesChartType.Pie,
-                XValueType = ChartValueType.String
+                XValueType = ChartValueType.String,
             };
+
+            pieSeries["PieLabelStyle"] = "Disabled";
 
             foreach (var r in reports)
             {
-                colSeries.Points.AddXY(r.DayName, r.Profit);
-                pieSeries.Points.AddXY(r.DayName, r.Expenses);
+                colSeries.Points.AddXY(r.Day, r.Profit);
+                pieSeries.Points.AddXY(r.Day, r.Profit);
             }
 
             chartColumn.Series.Add(colSeries);
             chartPie.Series.Add(pieSeries);
+
+
+            
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.Border3DAnnotation border3DAnnotation3 = new System.Windows.Forms.DataVisualization.Charting.Border3DAnnotation();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -40,7 +41,6 @@
             this.nudProjects = new System.Windows.Forms.NumericUpDown();
             this.nudDevs = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpInput = new System.Windows.Forms.TabPage();
@@ -53,6 +53,7 @@
             this.tpCharts = new System.Windows.Forms.TabPage();
             this.chartPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartColumn = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dtpDay = new System.Windows.Forms.DateTimePicker();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDevs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,12 +74,12 @@
             // 
             // gbInput
             // 
+            this.gbInput.Controls.Add(this.dtpDay);
             this.gbInput.Controls.Add(this.btnAdd);
             this.gbInput.Controls.Add(this.label3);
             this.gbInput.Controls.Add(this.nudProjects);
             this.gbInput.Controls.Add(this.nudDevs);
             this.gbInput.Controls.Add(this.label2);
-            this.gbInput.Controls.Add(this.tbName);
             this.gbInput.Controls.Add(this.label1);
             this.gbInput.Location = new System.Drawing.Point(6, 6);
             this.gbInput.Name = "gbInput";
@@ -159,21 +160,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Выручка за день (тыс. руб.):";
             // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(174, 17);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(100, 20);
-            this.tbName.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "День недели/Дата:";
+            this.label1.Text = "Дата:";
             // 
             // tabControl1
             // 
@@ -204,7 +198,7 @@
             // 
             this.gbFiles.Controls.Add(this.btnLoad);
             this.gbFiles.Controls.Add(this.btnSave);
-            this.gbFiles.Location = new System.Drawing.Point(28, 209);
+            this.gbFiles.Location = new System.Drawing.Point(19, 206);
             this.gbFiles.Name = "gbFiles";
             this.gbFiles.Size = new System.Drawing.Size(258, 100);
             this.gbFiles.TabIndex = 0;
@@ -234,9 +228,9 @@
             // listBoxPreview
             // 
             this.listBoxPreview.FormattingEnabled = true;
-            this.listBoxPreview.Location = new System.Drawing.Point(321, 26);
+            this.listBoxPreview.Location = new System.Drawing.Point(303, 16);
             this.listBoxPreview.Name = "listBoxPreview";
-            this.listBoxPreview.Size = new System.Drawing.Size(294, 277);
+            this.listBoxPreview.Size = new System.Drawing.Size(342, 290);
             this.listBoxPreview.TabIndex = 0;
             // 
             // tpTable
@@ -278,17 +272,26 @@
             // 
             // chartPie
             // 
+            border3DAnnotation3.BorderSkin.PageColor = System.Drawing.Color.Transparent;
+            border3DAnnotation3.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            border3DAnnotation3.LineColor = System.Drawing.Color.Empty;
+            border3DAnnotation3.Name = "Border3DAnnotation1";
+            border3DAnnotation3.Text = "Border3DAnnotation1";
+            this.chartPie.Annotations.Add(border3DAnnotation3);
+            chartArea5.Area3DStyle.Enable3D = true;
             chartArea5.Name = "ChartArea1";
             this.chartPie.ChartAreas.Add(chartArea5);
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend5.Name = "Legend1";
             this.chartPie.Legends.Add(legend5);
             this.chartPie.Location = new System.Drawing.Point(337, 16);
             this.chartPie.Name = "chartPie";
             series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series5.Legend = "Legend1";
             series5.Name = "Series1";
             this.chartPie.Series.Add(series5);
-            this.chartPie.Size = new System.Drawing.Size(300, 300);
+            this.chartPie.Size = new System.Drawing.Size(304, 300);
             this.chartPie.TabIndex = 0;
             this.chartPie.Text = "chart1";
             // 
@@ -296,6 +299,7 @@
             // 
             chartArea6.Name = "ChartArea1";
             this.chartColumn.ChartAreas.Add(chartArea6);
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend6.Name = "Legend1";
             this.chartColumn.Legends.Add(legend6);
             this.chartColumn.Location = new System.Drawing.Point(6, 16);
@@ -308,10 +312,22 @@
             this.chartColumn.TabIndex = 0;
             this.chartColumn.Text = "chart1";
             // 
+            // dtpDay
+            // 
+            this.dtpDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtpDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDay.Location = new System.Drawing.Point(123, 19);
+            this.dtpDay.MaxDate = new System.DateTime(2100, 5, 22, 0, 0, 0, 0);
+            this.dtpDay.MinDate = new System.DateTime(2026, 5, 22, 0, 0, 0, 0);
+            this.dtpDay.Name = "dtpDay";
+            this.dtpDay.Size = new System.Drawing.Size(116, 20);
+            this.dtpDay.TabIndex = 1;
+            this.dtpDay.Value = new System.DateTime(2026, 5, 22, 0, 0, 0, 0);
+            // 
             // colName
             // 
             this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colName.HeaderText = "День / Дата";
+            this.colName.HeaderText = "Дата";
             this.colName.Name = "colName";
             // 
             // colDevs
@@ -338,7 +354,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 385);
+            this.ClientSize = new System.Drawing.Size(687, 375);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -361,7 +377,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbInput;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label3;
@@ -379,6 +394,7 @@
         private System.Windows.Forms.DataGridView dgvResults;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartPie;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartColumn;
+        private System.Windows.Forms.DateTimePicker dtpDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDevs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProjects;

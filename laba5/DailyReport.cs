@@ -5,20 +5,20 @@ namespace laba5
 {
     public class DailyReport
     {
-        private string dayName; 
+        private string day; 
         private double revenue; 
         private double expenses; 
         private double deviation; 
 
-        public DailyReport(string dayName, double revenue, double expenses)
+        public DailyReport(string day, double revenue, double expenses)
         {
-            this.dayName = dayName;
+            this.day = day;
             this.revenue = revenue;
             this.expenses = expenses;
             this.deviation = 0.0;
         }
 
-        public string DayName => dayName;
+        public string Day => day;
         public double Revenue => revenue;
         public double Expenses => expenses;
 
