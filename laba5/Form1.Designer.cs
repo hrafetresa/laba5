@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Border3DAnnotation border3DAnnotation3 = new System.Windows.Forms.DataVisualization.Charting.Border3DAnnotation();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Border3DAnnotation border3DAnnotation2 = new System.Windows.Forms.DataVisualization.Charting.Border3DAnnotation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gbInput = new System.Windows.Forms.GroupBox();
+            this.dtpDay = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.nudProjects = new System.Windows.Forms.NumericUpDown();
@@ -50,15 +51,14 @@
             this.listBoxPreview = new System.Windows.Forms.ListBox();
             this.tpTable = new System.Windows.Forms.TabPage();
             this.dgvResults = new System.Windows.Forms.DataGridView();
-            this.tpCharts = new System.Windows.Forms.TabPage();
-            this.chartPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartColumn = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dtpDay = new System.Windows.Forms.DateTimePicker();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDevs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpCharts = new System.Windows.Forms.TabPage();
+            this.chartPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartColumn = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gbInput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudProjects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDevs)).BeginInit();
@@ -86,7 +86,19 @@
             this.gbInput.Size = new System.Drawing.Size(280, 179);
             this.gbInput.TabIndex = 0;
             this.gbInput.TabStop = false;
-            this.gbInput.Text = "Добавление языка";
+            this.gbInput.Text = "Финансовые показатели";
+            // 
+            // dtpDay
+            // 
+            this.dtpDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtpDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDay.Location = new System.Drawing.Point(123, 19);
+            this.dtpDay.MaxDate = new System.DateTime(2100, 5, 22, 0, 0, 0, 0);
+            this.dtpDay.MinDate = new System.DateTime(2026, 5, 22, 0, 0, 0, 0);
+            this.dtpDay.Name = "dtpDay";
+            this.dtpDay.Size = new System.Drawing.Size(116, 20);
+            this.dtpDay.TabIndex = 1;
+            this.dtpDay.Value = new System.DateTime(2026, 5, 22, 0, 0, 0, 0);
             // 
             // btnAdd
             // 
@@ -258,72 +270,6 @@
             this.dgvResults.Size = new System.Drawing.Size(514, 313);
             this.dgvResults.TabIndex = 0;
             // 
-            // tpCharts
-            // 
-            this.tpCharts.Controls.Add(this.chartPie);
-            this.tpCharts.Controls.Add(this.chartColumn);
-            this.tpCharts.Location = new System.Drawing.Point(4, 22);
-            this.tpCharts.Name = "tpCharts";
-            this.tpCharts.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCharts.Size = new System.Drawing.Size(664, 336);
-            this.tpCharts.TabIndex = 2;
-            this.tpCharts.Text = "Диаграммы";
-            this.tpCharts.UseVisualStyleBackColor = true;
-            // 
-            // chartPie
-            // 
-            border3DAnnotation3.BorderSkin.PageColor = System.Drawing.Color.Transparent;
-            border3DAnnotation3.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            border3DAnnotation3.LineColor = System.Drawing.Color.Empty;
-            border3DAnnotation3.Name = "Border3DAnnotation1";
-            border3DAnnotation3.Text = "Border3DAnnotation1";
-            this.chartPie.Annotations.Add(border3DAnnotation3);
-            chartArea5.Area3DStyle.Enable3D = true;
-            chartArea5.Name = "ChartArea1";
-            this.chartPie.ChartAreas.Add(chartArea5);
-            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend5.Name = "Legend1";
-            this.chartPie.Legends.Add(legend5);
-            this.chartPie.Location = new System.Drawing.Point(337, 16);
-            this.chartPie.Name = "chartPie";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chartPie.Series.Add(series5);
-            this.chartPie.Size = new System.Drawing.Size(304, 300);
-            this.chartPie.TabIndex = 0;
-            this.chartPie.Text = "chart1";
-            // 
-            // chartColumn
-            // 
-            chartArea6.Name = "ChartArea1";
-            this.chartColumn.ChartAreas.Add(chartArea6);
-            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend6.Name = "Legend1";
-            this.chartColumn.Legends.Add(legend6);
-            this.chartColumn.Location = new System.Drawing.Point(6, 16);
-            this.chartColumn.Name = "chartColumn";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartColumn.Series.Add(series6);
-            this.chartColumn.Size = new System.Drawing.Size(300, 300);
-            this.chartColumn.TabIndex = 0;
-            this.chartColumn.Text = "chart1";
-            // 
-            // dtpDay
-            // 
-            this.dtpDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dtpDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDay.Location = new System.Drawing.Point(123, 19);
-            this.dtpDay.MaxDate = new System.DateTime(2100, 5, 22, 0, 0, 0, 0);
-            this.dtpDay.MinDate = new System.DateTime(2026, 5, 22, 0, 0, 0, 0);
-            this.dtpDay.Name = "dtpDay";
-            this.dtpDay.Size = new System.Drawing.Size(116, 20);
-            this.dtpDay.TabIndex = 1;
-            this.dtpDay.Value = new System.DateTime(2026, 5, 22, 0, 0, 0, 0);
-            // 
             // colName
             // 
             this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -349,6 +295,60 @@
             // 
             this.Column1.HeaderText = "Отклонение от средней прибыли";
             this.Column1.Name = "Column1";
+            // 
+            // tpCharts
+            // 
+            this.tpCharts.Controls.Add(this.chartPie);
+            this.tpCharts.Controls.Add(this.chartColumn);
+            this.tpCharts.Location = new System.Drawing.Point(4, 22);
+            this.tpCharts.Name = "tpCharts";
+            this.tpCharts.Padding = new System.Windows.Forms.Padding(3);
+            this.tpCharts.Size = new System.Drawing.Size(664, 336);
+            this.tpCharts.TabIndex = 2;
+            this.tpCharts.Text = "Диаграммы";
+            this.tpCharts.UseVisualStyleBackColor = true;
+            // 
+            // chartPie
+            // 
+            border3DAnnotation2.BorderSkin.PageColor = System.Drawing.Color.Transparent;
+            border3DAnnotation2.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            border3DAnnotation2.LineColor = System.Drawing.Color.Empty;
+            border3DAnnotation2.Name = "Border3DAnnotation1";
+            border3DAnnotation2.Text = "Border3DAnnotation1";
+            this.chartPie.Annotations.Add(border3DAnnotation2);
+            chartArea3.Area3DStyle.Enable3D = true;
+            chartArea3.Name = "ChartArea1";
+            this.chartPie.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend3.Name = "Legend1";
+            this.chartPie.Legends.Add(legend3);
+            this.chartPie.Location = new System.Drawing.Point(337, 16);
+            this.chartPie.Name = "chartPie";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartPie.Series.Add(series3);
+            this.chartPie.Size = new System.Drawing.Size(304, 300);
+            this.chartPie.TabIndex = 0;
+            this.chartPie.Text = "chart1";
+            // 
+            // chartColumn
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chartColumn.ChartAreas.Add(chartArea4);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend4.Name = "Legend1";
+            this.chartColumn.Legends.Add(legend4);
+            this.chartColumn.Location = new System.Drawing.Point(6, 16);
+            this.chartColumn.Name = "chartColumn";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartColumn.Series.Add(series4);
+            this.chartColumn.Size = new System.Drawing.Size(300, 300);
+            this.chartColumn.TabIndex = 0;
+            this.chartColumn.Text = "chart1";
             // 
             // Form1
             // 
